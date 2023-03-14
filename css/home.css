@@ -1,0 +1,136 @@
+/* Estilo padrão da navbar */
+body {
+  margin: 0px;
+
+}
+
+.new-navbar-1 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #00a470;
+  padding: 10px 60px 20px 10px;
+  height: 60px;
+
+}
+
+/* Estilo da marca */
+.new-navbar-brand-1 {
+  font-size: 28px;
+  font-weight: bold;
+  padding-top: 100px;
+
+}
+
+
+/* Estilo do menu */
+.new-navbar-menu-1 {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.new-navbar-menu-1 li {
+  margin-left: 30px;
+}
+
+.new-navbar-menu-1 a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.new-menu-2 {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  align-items: center;
+
+}
+
+.new-navbar-menu-2 {
+  display: flex;
+  justify-content: end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.new-navbar-menu-2 li {
+  margin-left: 20px;
+}
+
+.new-navbar-menu-2 a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.material-icons {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+/* Estilo do campo de busca */
+.search {
+  position: relative;
+}
+
+.search input {
+  padding: 10px 10px 10px 50px;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #00a470;
+  font-size: 16px;
+  width: 400px;
+
+}
+
+.search input:focus {
+  outline: #00a470;
+
+
+}
+
+.search i {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  color: #00a470;
+}
+
+/* Estilo do botão de toggle */
+.navbar-toggle {
+  display: none;
+  font-size: 28px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Estilo para telas menores */
+@media screen and (max-width: 768px) {
+  .new-navbar-1 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .new-navbar-menu-1 {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+
+  .new-navbar-menu-1 li {
+    margin: 10px 0;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+
+}
