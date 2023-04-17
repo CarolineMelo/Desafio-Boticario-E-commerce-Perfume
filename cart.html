@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Perfumaria Essência</title>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="css/home.css">
+	<link rel="stylesheet" href="css/rodape.css">
+
+	<!-- <link href="css/bootstrap-4.4.1.css" rel="stylesheet"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	<script>
+
+		$(document).ready(function () {
+			// Função para atualizar o total do item
+			function updateItemTotal(itemRow) {
+				var quantity = itemRow.find('.quantity').val();
+				var price = itemRow.find('.price').text();
+				var total = quantity * price;
+				itemRow.find('.total').text(total.toFixed(2));
+			}
+
+			// Função para atualizar o total da compra
+			function updateTotal() {
+				var total = 0;
+				$('.item-row').each(function () {
+					total += parseFloat($(this).find('.total').text());
+				});
+				$('#total').text(total.toFixed(2));
+			}
+
+			// Adicionar evento para atualizar o total do item quando a quantidade mudar
+			$('.quantity').change(function () {
+				updateItemTotal($(this).parents('.item-row'));
+				updateTotal();
+			});
+
+			// Adicionar evento para remover item
+			$('.remove-item').click(function () {
+				$(this).parents('.item-row').remove();
+				updateTotal();
+			});
+		});
+	</script>
+</head>
+
+<body>
+
+	<!-- Início da navegação -->
+	<header class="">
+		<div class="cabecalho">
+			<nav class="new-navbar-1">
+				<div class="logo">
+					<a href="home.html" class="new-navbar-brand-1 mr-5"><img src="img/Logo.png"
+							alt="Logo da Perfumaria Essência"></a>
+				</div>
+
+				<div class="search d-none d-md-block">
+					<input type="text" placeholder="Pesquisar">
+					<i class="material-icons">search</i>
+				</div>
+
+				<ul class="new-navbar-menu-1">
+
+					<li><a href="#">Produtos</a></li>
+					<li><a href="#">Marcas</a></li>
+					<li><a href="#">Contato</a></li>
+					<li><i class="material-icons">favorite_border</i></li>
+					<li><i class="material-icons">account_circle</i></li>
+					<li><i class="material-icons">shopping_bag</i></li>
+				</ul>
+				<button class="navbar-toggle">&#9776;</button>
+			</nav>
+		</div>
+
+
+		<nav class="new-navbar-1">
+
+			<div class="new-menu-1">
+				<ul class="new-navbar-menu-1">
+
+					<li><a href="#">Promoções</a></li>
+					<li><a href="#">Presentes</a></li>
+					<li><a href="#">Feminino</a></li>
+					<li><a href="#">Masculino</a></li>
+					<li><a href="#">Unissex</a></li>
+					<li><a href="#">Infantil</a></li>
+					<li><a href="#">Sobre Nós</a></li>
+
+				</ul>
+			</div>
+		</nav>
+
+	</header>
+	<!-- Fim da navbar -->
+
+
+	<!-- Início do carrinho -->
+	<div class="container">
+		<h1 class="text-center">Meu carrinho de compras</h1>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Produto</th>
+					<th>Nome do produto</th>
+					<th>Quantidade</th>
+					<th></th>
+					<th>Preço unitário</th>
+					<th>Total</th>
+					<th></th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="item-row">
+					<td><img src="img/BOT_NATIVA-SPA_ORQUIDEA_MANTEIGA-MASSAGEM.webp" alt="Imagem do produto"
+							class="img-thumbnail"></td>
+					<td>Loção Noturna Desodorante Corporal Nativa SPA Orquídea Noire 400ml</td>
+					<td>
+						<select class="form-control quantity">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select>
+					</td>
+					<td><button class="btn btn-light remove-item"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+								height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+								<path
+									d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
+								<path
+									d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
+							</svg></button></td>
+					<td class="price">10.00</td>
+					<td class="total">10.00</td>
+
+
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+
+					<td colspan="3" class="text-right">Total:</td>
+					<td id="total">10.00</td>
+
+					<td><button class="btn btn-success compra-item">FINALIZAR COMPRA</button></td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	<!-- Fim da lista de produtos - fim do carrinho -->
+
+
+	<!--Rodapé -->
+
+	<div class="section mt-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-12 mt-5">
+					<img src="img/Logo_footer.png" alt="Logo da Perfufaria" class="rodape">
+				</div>
+
+				<div class="col-md-4 col-12">
+					<h3 class="text-center">Perfumaria Essência</h3>
+					<address class="text-center">
+						<strong>MyCompany, Inc.</strong><br>
+						Av. Rui Barbosa, 4110 - Bairro Parque da Fonte - São José dos Pinhais | CNPJ:
+						11.137.051/0719-54<br>
+						Paraná. CEP: 83.050-010 , BR<br>
+						
+
+					</address>
+					<div class="footer-nav-link text-center mt-5">
+						<h5 class="text-center pagamento "> Siga nossas Redes Sociais!</h5>
+
+						<div class="footer-content footer-accordion-content">
+
+							<a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Foboticario%2F"
+								target="_self" class="footer-nav-link footer-nav-featured footer-nav-image 
+                                  is-all" title="facebook"
+								data-interaction="{&quot;category&quot;: &quot;HOME&quot;, &quot;action&quot;: &quot;Footer-Click&quot;, &quot;location&quot;: &quot;footer&quot;, &quot;type&quot;: &quot;click&quot;, &quot;label&quot;: &quot;facebook&quot;}">
+								<img src="https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:eco,w_0.5/v1/banner/2021_10_26_19_24_35_3/efc7a172-a199-44a7-8435-ba6c9c921f5a-logo-facebook-1-1.svg"
+									data-src="https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:eco,w_0.5/v1/banner/2021_10_26_19_24_35_3/efc7a172-a199-44a7-8435-ba6c9c921f5a-logo-facebook-1-1.svg"
+									data-srcset="https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:eco,w_0.5/dpr_2.0/v1/banner/2021_10_26_19_24_35_3/efc7a172-a199-44a7-8435-ba6c9c921f5a-logo-facebook-1-1.svg 2x"
+									class="facebook lazyloaded" alt="facebook"
+									srcset="https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:eco,w_0.5/dpr_2.0/v1/banner/2021_10_26_19_24_35_3/efc7a172-a199-44a7-8435-ba6c9c921f5a-logo-facebook-1-1.svg 2x">
+							</a>
+							<a href="https://www.instagram.com/oboticario/" target="_self" class="footer-nav-link  footer-nav-image 
+                                  is-all" title="instagram"
+								data-interaction="{&quot;category&quot;: &quot;HOME&quot;, &quot;action&quot;: &quot;Footer-Click&quot;, &quot;location&quot;: &quot;footer&quot;, &quot;type&quot;: &quot;click&quot;, &quot;label&quot;: &quot;instagram&quot;}">
+								<img src="https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:eco,w_0.5/v1/banner/2021_10_26_19_15_08_6/e46f423d-8c7a-4d65-ab0d-8ae528ebac7e-insta.svg"
+									data-src="https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:eco,w_0.5/v1/banner/2021_10_26_19_15_08_6/e46f423d-8c7a-4d65-ab0d-8ae528ebac7e-insta.svg"
+									data-srcset="https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:eco,w_0.5/dpr_2.0/v1/banner/2021_10_26_19_15_08_6/e46f423d-8c7a-4d65-ab0d-8ae528ebac7e-insta.svg 2x"
+									class="instagram lazyloaded" alt="instagram"
+									srcset="https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:eco,w_0.5/dpr_2.0/v1/banner/2021_10_26_19_15_08_6/e46f423d-8c7a-4d65-ab0d-8ae528ebac7e-insta.svg 2x">
+							</a>
+
+							<a href="https://www.youtube.com/channel/UCBzHXqTZlKVe_aoDU5cbfRw" target="_self" class="footer-nav-link  footer-nav-image 
+                                  is-all 
+                                 
+                                 " title="youtube"
+								data-interaction="{&quot;category&quot;: &quot;HOME&quot;, &quot;action&quot;: &quot;Footer-Click&quot;, &quot;location&quot;: &quot;footer&quot;, &quot;type&quot;: &quot;click&quot;, &quot;label&quot;: &quot;youtube&quot;}">
+
+
+
+								<img src="https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:eco,w_0.5/v1/banner/2021_10_26_19_19_38_2/90ea2a46-9f62-4be6-957c-3c5232167609-youtubee.svg"
+									data-src="https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:eco,w_0.5/v1/banner/2021_10_26_19_19_38_2/90ea2a46-9f62-4be6-957c-3c5232167609-youtubee.svg"
+									data-srcset="https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:eco,w_0.5/dpr_2.0/v1/banner/2021_10_26_19_19_38_2/90ea2a46-9f62-4be6-957c-3c5232167609-youtubee.svg 2x"
+									class="youtube lazyloaded" alt="youtube"
+									srcset="https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:eco,w_0.5/dpr_2.0/v1/banner/2021_10_26_19_19_38_2/90ea2a46-9f62-4be6-957c-3c5232167609-youtubee.svg 2x">
+
+
+							</a>
+
+							<a href="https://twitter.com/oBoticario" target="_self" class="footer-nav-link  footer-nav-image 
+                                  is-all" title="twitter"
+								data-interaction="{&quot;category&quot;: &quot;HOME&quot;, &quot;action&quot;: &quot;Footer-Click&quot;, &quot;location&quot;: &quot;footer&quot;, &quot;type&quot;: &quot;click&quot;, &quot;label&quot;: &quot;twitter&quot;}">
+
+								<img src="https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:eco,w_0.5/v1/banner/2021_10_26_19_20_52_6/2e87f6ce-11d9-4bde-a449-ab62c0b4dcee-twitter.svg"
+									data-src="https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:eco,w_0.5/v1/banner/2021_10_26_19_20_52_6/2e87f6ce-11d9-4bde-a449-ab62c0b4dcee-twitter.svg"
+									data-srcset="https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:eco,w_0.5/dpr_2.0/v1/banner/2021_10_26_19_20_52_6/2e87f6ce-11d9-4bde-a449-ab62c0b4dcee-twitter.svg 2x"
+									class="twitter lazyloaded" alt="twitter"
+									srcset="https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:eco,w_0.5/dpr_2.0/v1/banner/2021_10_26_19_20_52_6/2e87f6ce-11d9-4bde-a449-ab62c0b4dcee-twitter.svg 2x">
+							</a>
+
+						</div>
+
+					</div>
+
+				</div>
+				<div class="col-md-4 col-12">
+					<h5 class="text-center pagamento ">FORMAS DE PAGAMENTO</h5>
+					<p class="footer-text">
+						<img src="https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:eco,w_0.5/v1/banner/2022_08_22_10_43_46_3/ece816a6-39ff-4013-a4f5-aae7c0ea38a1-payment-big.png"
+							data-src="https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:eco,w_0.5/v1/banner/2022_08_22_10_43_46_3/ece816a6-39ff-4013-a4f5-aae7c0ea38a1-payment-big.png"
+							data-srcset="https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:eco,w_0.5/dpr_2.0/v1/banner/2022_08_22_10_43_46_3/ece816a6-39ff-4013-a4f5-aae7c0ea38a1-payment-big.png 2x"
+							class="meios-de-pagamento ls-is-cached lazyloaded" alt="Meios de pagamento"
+							srcset="https://res.cloudinary.com/beleza-na-web/image/upload/f_auto,fl_progressive,q_auto:eco,w_0.5/dpr_2.0/v1/banner/2022_08_22_10_43_46_3/ece816a6-39ff-4013-a4f5-aae7c0ea38a1-payment-big.png 2x">
+					</p>
+
+					<h5 class="text-center mt-5">FIQUE POR DENTRO DAS NOSSAS OFERTAS E NOVIDADES!</h5>
+					<form>
+						<div class="form-group col-12 pt-2">
+							<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+							<button type="submit" class="btn btn-dark btn-sm mt-2 mb-2">Cadastrar</button>
+							<p class="text-center">Ao se cadastrar você irá concordar com a nossa política de
+								privacidade.</p>
+
+						</div>
+
+					</form>
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer class="text-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<p>Copyright © Perfumaria Essência. Todos os direitos autorais.</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap-4.4.1.js"></script>
+
+</html>
